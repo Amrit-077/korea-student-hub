@@ -106,7 +106,6 @@ export default function ArticleDetail() {
       </Link>
 
       <Card>
-        {/* Header */}
         <div className="flex items-start justify-between gap-3 mb-4">
           <div>
             <Badge category={article.category} className="mb-2" />
@@ -123,7 +122,6 @@ export default function ArticleDetail() {
           )}
         </div>
 
-        {/* Language toggle */}
         <div className="flex gap-2 mb-5">
           {languages.map((l) => (
             <button
@@ -140,12 +138,10 @@ export default function ArticleDetail() {
           ))}
         </div>
 
-        {/* Content */}
         <div className="prose prose-sm max-w-none text-neutral-700 leading-relaxed whitespace-pre-wrap">
           {content}
         </div>
 
-        {/* Tags */}
         {article.tags?.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mt-5 pt-5 border-t border-neutral-100">
             {article.tags.map((tag) => (
@@ -159,7 +155,6 @@ export default function ArticleDetail() {
           </div>
         )}
 
-        {/* Footer */}
         <div className="mt-5 pt-4 border-t border-neutral-100 flex items-center justify-between gap-3">
           <p className="text-xs text-neutral-700/50">
             Last verified: {new Date(article.last_verified_at).toLocaleDateString()}
@@ -185,7 +180,6 @@ export default function ArticleDetail() {
           </button>
         </div>
 
-        {/* Feedback form */}
         {feedbackOpen && (
           <div className="mt-4 space-y-2">
             {feedbackSent ? (
@@ -208,7 +202,6 @@ export default function ArticleDetail() {
         )}
       </Card>
 
-      {/* Disclaimer */}
       <div className="bg-orange-50 border border-orange-100 rounded-xl px-4 py-3 text-sm text-orange-700">
         ⚠️ This is general guidance only. Always verify with your university's international
         office or the Korea Immigration Service (☎ 1345).
