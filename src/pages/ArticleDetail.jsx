@@ -32,7 +32,6 @@ export default function ArticleDetail() {
         .select('*')
         .eq('slug', slug)
         .single()
-
       if (error || !data) {
         setNotFound(true)
       } else {
@@ -102,7 +101,7 @@ export default function ArticleDetail() {
   return (
     <div className="max-w-2xl mx-auto space-y-6">
       <Link to="/knowledge-base" className="text-sm text-primary-600 hover:underline">
-        ← Back to Knowledge Base
+        Back to Knowledge Base
       </Link>
 
       <Card>
@@ -115,7 +114,6 @@ export default function ArticleDetail() {
             <button
               onClick={toggleBookmark}
               className="text-xl shrink-0 mt-1"
-              title={bookmarked ? 'Remove bookmark' : 'Bookmark this article'}
             >
               {bookmarked ? '🔖' : '📄'}
             </button>
@@ -138,7 +136,7 @@ export default function ArticleDetail() {
           ))}
         </div>
 
-        <div className="prose prose-sm max-w-none text-neutral-700 leading-relaxed whitespace-pre-wrap">
+        <div className="text-sm text-neutral-700 leading-relaxed whitespace-pre-wrap">
           {content}
         </div>
 
@@ -159,9 +157,9 @@ export default function ArticleDetail() {
           <p className="text-xs text-neutral-700/50">
             Last verified: {new Date(article.last_verified_at).toLocaleDateString()}
             {article.source_url && (
-              <>
-                {' '}·{' '}
-                
+              <span>
+                {' · '}
+                <a
                   href={article.source_url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -169,7 +167,7 @@ export default function ArticleDetail() {
                 >
                   Official source
                 </a>
-              </>
+              </span>
             )}
           </p>
           <button
@@ -203,8 +201,8 @@ export default function ArticleDetail() {
       </Card>
 
       <div className="bg-orange-50 border border-orange-100 rounded-xl px-4 py-3 text-sm text-orange-700">
-        ⚠️ This is general guidance only. Always verify with your university's international
-        office or the Korea Immigration Service (☎ 1345).
+        This is general guidance only. Always verify with your university international
+        office or the Korea Immigration Service (1345).
       </div>
     </div>
   )
